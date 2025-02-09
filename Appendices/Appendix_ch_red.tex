@@ -1,0 +1,98 @@
+% Appendix A
+\chapter{Appendix - Readers' Emotion Detection}
+\label{appendix_red}
+
+\section{Legal and Ethical Concerns of REN Datasets} % Main appendix title
+\label{appendix_red_concerns}
+
+The necessary approval in using the data for non-commercial academic research purposes was obtained from Rappler Inc. The data from Rappler to create REN datasets was procured manually without using any automated crawling software. All participants engaged in the manual data collection process were sensitized about the nature of the research and were trained on assigning the news documents to various genres consistently. Further, informed consent was obtained before the participants took part in the process of dataset curation. There was no labeling or annotation required in terms of readers' emotions since it was available within the Rappler website. The study cites the Rappler website for the data source in our research as reference number \cite{rappler2022philippine} and also acknowledges Rappler's data source support and participants engaged in the manual data collection process, within the `Acknowledgement' section.
+
+\newpage
+
+\section{Hyper-parameters of the baselines} % Main appendix title
+\label{appendix_red_hyper_param}
+
+Hyper-parameters used to build the deep learning baselines, Kim’s CNN \cite{kim2014convolutional}, GRU, LSTM \cite{krebs2017social}, Bi-LSTM \cite{kratzwald2018deep}, Bi-LSTM+Attention, and emoBi-LSTM+Attention are provided in table \ref{tab_appendix_red_deep_param} to aid reproducibility.
+
+\begin{table}[htb!]
+    \small
+    \sffamily
+    \centering
+    %\renewcommand{\arraystretch}{0.815} %0.845
+    \centering
+    \setlength{\tabcolsep}{5pt}
+    \caption{Hyper-parameters of the deep learning baselines}
+    \label{tab_appendix_red_deep_param}
+    %\resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \begin{tabular}[c]{@{}l@{}}Parameters\\ \\\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}Kim's\\CNN\\\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}GRU \\ \\\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}LSTM \\ \\\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}}Bi-LSTM \\ \\\end{tabular}
+            & \begin{tabular}[c]{@{}l@{}} Bi-LSTM+\\Attention \end{tabular}
+            & \begin{tabular}[c]{@{}l@{}} emoBi-LSTM\\+Attention \end{tabular}
+        \\ \midrule
+        Filter size & 3, 4 \& 5  
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \end{tabular} \vspace{3pt}\\  
+        \begin{tabular}[c]{@{}l@{}}Number of\\filters\end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}}100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} \vspace{3pt}\\
+        \begin{tabular}[c]{@{}l@{}}Number of\\RNN stack\end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 1 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 1 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 1 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 1 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 1 \\ \\ \end{tabular} \vspace{3pt}\\   
+        \begin{tabular}[c]{@{}l@{}}Neurons in\\Stack\end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} -- \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} \vspace{3pt}\\   
+        \begin{tabular}[c]{@{}l@{}}Embedding\\ \\\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\GloVe \end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\GloVe \end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\GloVe \end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\GloVe \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\GloVe \end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}Pre-trained\\emoGloVe\end{tabular} \vspace{3pt}\\    
+        \begin{tabular}[c]{@{}l@{}}Embedding\\dimension\end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} 100 \\ \\ \end{tabular} \vspace{3pt}\\     
+        Regularizer & \textit{l2(0.01)} & \textit{l2(0.01)} 
+            & \textit{l2(0.001)} & \textit{l2(0.001)} &\textit{l2(0.001)}
+            &\textit{l2(0.001)} \vspace{3pt}\\   
+        Dropout & 0.5 & 0.25 & 0.5 & 0.5 &  0.5 & 0.5 \vspace{3pt}\\   
+        Loss & MSE & MSE & MSE & MSE & MSE & MSE \vspace{3pt}\\  
+        Optimiser & \textit{Adam} & \textit{Adam} & \textit{Adam} 
+            & \textit{Adam} & \textit{Adam} & \textit{Adam} \vspace{3pt}\\   
+        Learning rate & 0.0005 & 0.005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 \vspace{3pt}\\   
+        \begin{tabular}[c]{@{}l@{}}Dense layer\\activation\end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} 
+            & \begin{tabular}[c]{@{}c@{}} \textit{softmax} \\ \\ \end{tabular} \vspace{3pt}\\   
+        Batch size & 64 & 64 & 128 & 128 & 128 & 128 \vspace{3pt}\\   
+        Epoch & 100 & 100 & 100 & 100 & 100 & 100 \\ \bottomrule
+    \end{tabular}
+    %}
+\end{table}
+

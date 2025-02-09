@@ -1,0 +1,468 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+%
+% This template is again modified by adding more packages and functions 
+% Anoop Kadan and Manjary P. Ganagan 
+% Dr. Anoop Kadan - http://dcs.uoc.ac.in/~anoop
+% Dr. Manjary P. Gangan - https://dcs.uoc.ac.in/~manjary/
+%
+%
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing, singlespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage[backend=bibtex,natbib=true,sorting=none]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+%,style=authoryear
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	Other packages added
+%----------------------------------------------------------------------------------------
+
+\usepackage{epigraph} 
+\usepackage{lettrine}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsthm,amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+%\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{subcaption}
+\DeclareMathOperator*{\argmax}{argmax} 
+\usepackage{cleveref}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage[many]{tcolorbox}
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e}
+\usepackage{pifont}
+%\usepackage{fontawesome}
+\usepackage{fontawesome5}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}%[section]
+\usepackage[en-US]{datetime2}
+\usepackage{longtable}
+\usepackage{blindtext}
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+\definecolor{mygreen}{RGB}{0, 171, 79}
+\definecolor{myred}{RGB}{255, 46, 23}
+
+\setlength{\epigraphwidth}{0.65\textwidth}
+\renewcommand{\epigraphflush}{flushright}
+\setlength{\epigraphrule}{0pt}
+
+% to print all author names in bibliography
+\ExecuteBibliographyOptions{%
+  abbreviate=false,%
+  uniquename=allfull,%
+  maxnames=99,%
+  minnames=99%
+  }
+\renewcommand*{\bibfont}{\small}
+\addbibresource{thesis_ref_red,thesis_ref_fnd,thesis_ref_intro,thesis_ref_aff} % The filename of the bibliography
+
+\definecolor{main}{HTML}{800000}    % 5989cf setting main color to be used
+\definecolor{sub}{HTML}{e5cccc}     % cde4ff setting sub color to be used
+\newtcolorbox{boxH}{
+    colback = sub, 
+    colframe = main, 
+    boxrule = 0pt, 
+    leftrule = 6pt % left rule weight
+}
+                     % setting global options for tcolorbox
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper = a4paper, % Change to letterpaper for US letter
+	inner = 2.5cm, % Inner margin
+	outer = 3.5cm, % Outer margin 3.8cm
+	bindingoffset = 0.5cm, % Binding offset
+	top = 3cm, % Top margin 1.5cm
+	bottom = 3cm, % Bottom margin 1.5cm
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{ Your thesis title, this is used in the title and abstract 
+} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Your text} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Your text} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Computer Science} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{Keyword 1, keyword 2, etc} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{https://uoc.ac.in/}{University of Calicut}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{https://dcs.uoc.ac.in/}{Your text}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://researchgroup.university.com}{Your text}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://faculty.university.com}{Science}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+    \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+    \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+    \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+    }
+
+\begin{document}
+\linespread{1}
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.02\textheight}
+
+%\HRule \\[0.4cm] % Horizontal line
+{\huge  \bfseries \ttitle} % Thesis title
+%\HRule \\[1.5cm] % Horizontal line
+\vspace*{.06\textheight}
+
+\large
+\textit{A thesis submitted in partial fulfillment of \\
+the requirements for the degree of}
+\vspace*{.04\textheight} \\
+\textbf{DOCTOR OF PHILOSOPHY}
+\vspace*{.01\textheight} \\
+IN
+\vspace*{.01\textheight} \\
+\textbf{COMPUTER SCIENCE}
+ \vspace*{.02\textheight} \\
+In the Faculty of Science\\ [0.3cm] % University requirement text
+
+\vspace*{.04\textheight}
+By 
+\vspace*{.01\textheight} \\
+\textbf{\Large {Your text}}
+\vspace*{.02\textheight} \\
+Under the Guidance of 
+\vspace*{.01\textheight} \\
+\textbf{Your text}
+
+\vspace*{.03\textheight}
+\begin{center}
+    \includegraphics[width=3cm,height=3cm]{Figures/cu_logo.jpg}
+\end{center}
+\vspace*{.02\textheight}
+DEPARTMENT OF COMPUTER SCIENCE
+\\
+UNIVERSITY OF CALICUT 
+\\
+KERALA, INDIA 
+\vspace*{.02\textheight} \\
+%OCTOBER 2022
+\DTMlangsetup{showdayofmonth=false}
+\today
+\end{center}
+\end{titlepage}
+
+\cleardoublepage
+
+\begin{comment}
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+\begin{center}
+\vspace*{\fill}
+   \large{Copyright \textcopyright Anoop Kadan, 2022 \\All Rights Reserved}
+   \vspace*{\fill}
+\end{center}
+
+
+\cleardoublepage
+\end{comment}
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+    \includegraphics[width=2cm,height=2cm]{Figures/cu_logo.jpg}\\
+    Your text here\\
+    Your text here
+\end{center}
+%
+Name 
+\hfill
+Your text here\\
+Your text here
+\hfill
+Your text here 
+%
+\vspace*{.01\textheight}
+\hrule
+\vspace*{.02\textheight}
+%
+\begin{center}
+ \LARGE{\textbf{Certificate}}   
+\end{center}
+%
+\vspace*{.04\textheight}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\blindtext 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace*{.04\textheight}\\
+\begin{flushright}
+\textbf{Your text}\\
+Your text\\
+DYour text\\
+
+\end{flushright}
+\begin{flushleft}
+Your text\\
+Your text
+%\DTMlangsetup{showdayofmonth=true}
+%\today
+\end{flushleft}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+%
+\vspace*{.06\textheight}
+\noindent 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\blindtext 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\vspace*{.04\textheight}
+\begin{flushright}
+    \textbf{Your text}\\
+\end{flushright}
+\begin{flushleft}
+    Your text\\
+    Your text
+    %\DTMlangsetup{showdayofmonth=true}
+    %\today
+\end{flushleft}
+
+\end{declaration}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	Warning page
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.25\textheight}
+\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\blindtext 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\faWarning
+
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+%\vspace*{0.2\textheight}
+
+%\noindent{\itshape {\Large \enquote{Wishing a wonderful read \ldots}}} \\
+%\noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
+
+%\hfill Dave Barry
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Blindtext 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%The Thesis also paves directions for future research in textual affective computing, specifically in the three facets, readers’ emotion detection, affect-oriented fake news detection, and affective bias.  
+
+\bigbreak
+\noindent
+\textbf{Keywords}: \keywordnames
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+%\label{ack}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+
+\vspace{1em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Blindtext 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{10pt}
+\begin{flushright}
+    Your text
+\end{flushright}
+
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%\listofalgorithms %list of algorithms
+%\addcontentsline{toc}{chapter}{List of Algorithms}
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{Your text} & Your text\\
+\textbf{Your text} & Your text\\
+\textbf{Your text} & Your text\\
+\textbf{Your text} & Your text
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+%Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+%\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+%$a$ & distance & \si{\meter} \\
+%$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+%\addlinespace % Gap to separate the Roman symbols from the Greek
+
+%$\omega$ & angular frequency & \si{\radian} \\
+
+%\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedicatory{Dedicated to % For/To my\ldots
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/ch_intro}
+%\include{Chapters/ch_rev} 
+%\include{Chapters/ch_red}
+%\include{Chapters/ch_fnd} 
+%\include{Chapters/ch_aff} 
+%\include{Chapters/ch_conclu}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/Appendix_ch_red}
+%\include{Appendices/Appendix_ch_fnd}
+%\include{Appendices/Appendix_ch_aff}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+    \includegraphics[width=4cm,height=1cm]{Figures/the_end.png}
+\end{center}
+
+
+\end{document}  
+\grid
