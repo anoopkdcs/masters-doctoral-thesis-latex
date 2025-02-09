@@ -1,2 +1,2 @@
-# masters-doctoral-thesis-latex-
-Masters/Doctoral Thesis LaTeX Template 
+# Masters/Doctoral Thesis LaTeX Template 
+
